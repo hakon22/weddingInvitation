@@ -29,12 +29,12 @@ const List = ({ isMobile }) => {
     const isLike = localStorage.getItem(`guest_${id}`);
     if (isLike) {
       localStorage.removeItem(`guest_${id}`);
-      await axios.get(`${routes.removeLike}${id}`);
       removeLike(id);
+      await axios.get(`${routes.removeLike}${id}`);
     } else {
       window.localStorage.setItem(`guest_${id}`, 'like');
-      await axios.get(`${routes.addLike}${id}`);
       addLike(id);
+      await axios.get(`${routes.addLike}${id}`);
     }
   };
 
