@@ -7,7 +7,7 @@ const router = express.Router();
 
 const jsonParser = bodyParser.json();
 
-const db = process.env.DB === 'LOCAL' ? new Sequelize(process.env.DB_LOCAL) : new Sequelize(process.env.DB_HOST);
+const db = process.env.DB === 'LOCAL' ? new Sequelize(process.env.DB_LOCAL) : new Sequelize("postgres://hakon22:ZMG5aNQoGQIq8F06GAFzAFeXaTfxeVJ3@dpg-cif043tgkuvq1o378440-a:5432/test_t055");
 
 const Data = db.define(
   'Data',
