@@ -47,7 +47,7 @@ const List = ({ isMobile }) => {
     : (
       <>
         <ModalDelete show={modalShow} onHide={() => setModalShow(false)} id={currentId} />
-        {data.sort((a, b) => a.id < b.id).map((guest) => {
+        {data.sort((a, b) => b.id - a.id).map((guest) => {
           const isLike = localStorage.getItem(`guest_${guest.id}`);
           return (
             <Table key={guest.id} className="mb-3 anim-show" striped bordered hover variant="light">
