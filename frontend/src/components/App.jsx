@@ -16,7 +16,7 @@ const App = () => {
   const isMobile = window.screen.width <= 768;
   const { t } = useTranslation();
 
-  const socket = io();
+  const socket = io('wss://portfolio.am-projects.ru', { path: '/wedding/socket.io' });
   const socketConnect = useCallback((param, arg) => {
     socket.emit(param, arg);
   }, [socket]);
@@ -50,7 +50,7 @@ const App = () => {
         <div className="container">
           <div className="row d-flex justify-content-center">
             <div className="col-12">
-              <BrowserRouter>
+              <BrowserRouter basename="/wedding">
                 <ToastContainer />
                 <Routes>
                   <Route path="/" element={<FormSubmit isMobile={isMobile} />} />

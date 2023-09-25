@@ -11,6 +11,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "wedding",
   "author": "hakon22",
   "license": "ISC",
   "dependencies": {

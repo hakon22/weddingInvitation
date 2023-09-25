@@ -6,12 +6,12 @@ const { Server } = require("socket.io");
 const { router, db } = require('./api.js');
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, { path: '/wedding/socket.io' });
 
 const port = process.env.PORT || 3001;
 
 
-const buildPath = path.join(__dirname, 'frontend', 'build');
+const buildPath = path.join(__dirname, 'build');
 
 app.use(express.static(buildPath));
 app.use(express.json());

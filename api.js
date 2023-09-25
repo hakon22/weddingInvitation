@@ -7,7 +7,7 @@ const router = express.Router();
 
 const jsonParser = bodyParser.json();
 
-const db = process.env.DB === 'LOCAL' ? new Sequelize(process.env.DB_LOCAL) : new Sequelize("postgres://hakon22:ZMG5aNQoGQIq8F06GAFzAFeXaTfxeVJ3@dpg-cif043tgkuvq1o378440-a:5432/test_t055");
+const db = process.env.DB === 'LOCAL' ? new Sequelize(process.env.DB_LOCAL) : new Sequelize(process.env.DB_HOST);
 
 const Data = db.define(
   'Data',
@@ -65,7 +65,7 @@ const Data = db.define(
   },
 );
 
-router.post('/api/data-add', jsonParser, async (req, res) => {
+router.post('/wedding/api/data-add', jsonParser, async (req, res) => {
   try {
     const { name, phone, foods, alcohol, transfer, children, beds } = req.body;
     const todo = await Data.create({ name, phone, foods, alcohol, transfer, children, beds });
@@ -76,7 +76,7 @@ router.post('/api/data-add', jsonParser, async (req, res) => {
   }
 });
 
-router.delete('/api/data-delete/:id', jsonParser, async (req, res) => {
+router.delete('/wedding/api/data-delete/:id', jsonParser, async (req, res) => {
   try {
     const { id } = req.params;
     await Data.destroy({ where: { id } });
@@ -87,7 +87,7 @@ router.delete('/api/data-delete/:id', jsonParser, async (req, res) => {
   }
 });
 
-router.get('/api/data-addLike/:id', jsonParser, async (req, res) => {
+router.get('/wedding/api/data-addLike/:id', jsonParser, async (req, res) => {
   try {
     const { id } = req.params;
     await Data.increment('likes', { where: { id } });
@@ -98,7 +98,7 @@ router.get('/api/data-addLike/:id', jsonParser, async (req, res) => {
   }
 });
 
-router.get('/api/data-removeLike/:id', jsonParser, async (req, res) => {
+router.get('/wedding/api/data-removeLike/:id', jsonParser, async (req, res) => {
   try {
     const { id } = req.params;
     await Data.decrement('likes', { where: { id } });
@@ -109,7 +109,7 @@ router.get('/api/data-removeLike/:id', jsonParser, async (req, res) => {
   }
 });
 
-router.get('/api/data-all', jsonParser, async (req, res) => {
+router.get('/wedding/api/data-all', jsonParser, async (req, res) => {
   try {
     const todo = await Data.findAll();
     res.status(200).send(todo);

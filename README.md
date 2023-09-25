@@ -1,2 +1,2 @@
-### https://weddinginvitation-mton.onrender.com/
-### https://weddinginvitation-mton.onrender.com/list
+### https://portfolio.am-projects.ru/wedding/
+### https://portfolio.am-projects.ru/wedding/list

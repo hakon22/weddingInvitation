@@ -1,4 +1,4 @@
-const apiPath = '/api';
+const apiPath = '/wedding/api';
 
 export default {
   add: [apiPath, 'data-add'].join('/'),
